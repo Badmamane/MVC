@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Struts 2 (2)" type="struts2">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/Downloads/struts-2.3.24.1-all.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
