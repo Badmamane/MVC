@@ -23,7 +23,7 @@ public interface EvenementDAO {
 
 	public boolean CreerEvenement(Evenement evenement) throws Exception;
 
-	public boolean SupprimerEvenement(int codeEvent) throws Exception;
+	public boolean SupprimerEvenement(long codeEvent) throws Exception;
 
 	public boolean updateEvenement(Evenement evenement) throws Exception;
 

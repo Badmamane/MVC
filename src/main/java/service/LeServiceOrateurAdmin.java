@@ -4,6 +4,7 @@ import DAO.DAOImplementations.EvenementDAOImplement;
 import DAO.DAOImplementations.UtilisateurDAOImplement;
 import DAO.DAOjdbc.EvenementDAO;
 import DAO.DAOjdbc.UtilisateurDAO;
+import model.Evenement;
 import model.Utilisateur;
 
 /**
@@ -13,12 +14,29 @@ public class LeServiceOrateurAdmin {
 
     EvenementDAO evenementDAOimplement = new EvenementDAOImplement();
     UtilisateurDAO utilisateurDAO = new UtilisateurDAOImplement();
-    Utilisateur adminOuModerateur = new Utilisateur();
 
-    Utilisateur creer (Utilisateur u)
-    {
-        if()
+    boolean supprimerEvenementService (Evenement e) {
+        long code = e.getCodeevent();
+        boolean b;
+        try {
+             b = evenementDAOimplement.SupprimerEvenement(code);
+             return true;
+        } catch (Exception exp) {
+            exp.printStackTrace();
+        }
+        return false;
     }
 
+    Evenement modifierEvenementService (Evenement e)
+    {
+       boolean b;
+        try{
+            b = evenementDAOimplement.updateEvenement(e);
+            return e;
+           } catch (Exception exp){
+            exp.printStackTrace();}
+
+            return e;
+    }
 
 }

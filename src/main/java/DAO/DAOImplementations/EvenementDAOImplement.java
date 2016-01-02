@@ -116,7 +116,7 @@ return null;
         return false;
     }
 
-    public boolean SupprimerEvenement(int codeEvent) throws Exception
+    public boolean SupprimerEvenement(long codeEvent) throws Exception
     {
         session = util.getSessionFactory().openSession();
         session.beginTransaction();

@@ -10,12 +10,24 @@ import javax.persistence.Id;
  */
 @Entity
 public class Utilisateur {
+
     private long identifiant;
     private String nom;
     private String prenom;
     private String adressemail;
     private String motdepasse;
 
+
+    public Utilisateur(){};
+
+    public Utilisateur( long identifiant, String prenom, String nom, String adressemail, String motdepasse)
+    {
+        this.identifiant = identifiant;
+        this.prenom = prenom;
+        this.nom = nom;
+        this.adressemail = adressemail;
+        this.motdepasse = motdepasse;
+    };
     @Id
     @Column(name = "identifiant")
     public long getIdentifiant() {

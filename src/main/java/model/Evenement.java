@@ -16,6 +16,16 @@ public class Evenement {
     private String salle;
     private long idAnimateur;
 
+    public Evenement(){};
+    public Evenement(long codeevent, String nomevent, String sujet, String salle, long idAnimateur)
+    {
+        this.codeevent = codeevent;
+        this.nomevent = nomevent;
+        this.salle = salle;
+        this.sujet = sujet;
+        this.idAnimateur = idAnimateur;
+    }
+
     @Id
     @Column(name = "codeevent")
     public long getCodeevent() {

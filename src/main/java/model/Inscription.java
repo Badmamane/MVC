@@ -15,6 +15,14 @@ public class Inscription {
     private Timestamp dateinscription;
     private Double note;
 
+   public Inscription(){};
+    public Inscription(long codeevent, long identifiant, Timestamp dateinscription, Double note)
+    {
+        this.codeevent = codeevent;
+        this.identifiant = identifiant;
+        this.dateinscription = dateinscription;
+        this.note = note;
+    }
     @Basic
     @Column(name = "codeevent")
     public long getCodeevent() {
