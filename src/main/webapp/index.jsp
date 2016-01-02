@@ -11,6 +11,9 @@
     <title>$Title$</title>
   </head>
   <body>
-  $END$
+  Bienvenue dans l'application:
+
+  <a href="login.jsp">S'identifier</a>
+
   </body>
 </html>

@@ -22,8 +22,19 @@
     </div>
 </s:if>
 <s:form action="Login">
-    <s:textfield name="utilisateur.login" label="Login" />
-    <s:password name="utilisateur.password" label="Password"/>
+    <s:textfield name="utilisateur.nom" label="Login" />
+    <s:textfield name="evenement.codeEvent" label="Login" />
+    <s:password name="utilisateur.motdePasse" label="Password"/>
+    <s:submit label="Submit" />
+    </s:form>
+</br>
+    Vous n'êtes pas encore inscrit à un évènement ? Vous inscrire :
+</br>
+<s:form action="Inscription">
+    <s:textfield name="utilisateur.nom" label="Login" />
+    <s:textfield name="utilisateur.prenom" label="Login" />
+    <s:password name="utilisateur.motdePasse" label="Password"/>
+    <s:textfield name="utilisateur.adresseMail" label="" />
     <s:submit label="Submit" />
 </s:form>
 </body>
