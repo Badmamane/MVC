@@ -29,5 +29,15 @@ public class InscriptionDAOImplement implements InscriptionDAO {
         return inscription;
     }
 
-    public
+    public Inscription inscriptionNote(Inscription inscription, Double note)
+    {
+        session = util.getSessionFactory().openSession();
+        session.beginTransaction();
+        inscription.setNote(note);
+        session.saveOrUpdate(inscription);
+        session.getTransaction().commit();
+        session.close();
+        return inscription;
+
+    }
 }
