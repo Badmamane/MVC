@@ -19,7 +19,7 @@ public interface EvenementDAO {
 
 	public List<Utilisateur> ListerPersonnesParEvt(Evenement evenement) throws Exception;
 
-	public List VoirNoteMoyenneByEvenement(Evenement evenement) throws Exception;
+	public Double VoirNoteMoyenneByEvenement(Evenement evenement) throws Exception;
 
 	public boolean CreerEvenement(Evenement evenement) throws Exception;
 

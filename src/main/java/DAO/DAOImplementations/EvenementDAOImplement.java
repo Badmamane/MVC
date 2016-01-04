@@ -73,18 +73,22 @@ return null;
         return l;
     }
 /**********/
-    public List<Float> VoirNoteMoyenneByEvenement(Evenement evenement) throws Exception
+    public Double VoirNoteMoyenneByEvenement(Evenement evenement) throws Exception
     {
-        List<Float> l;
-        Float moyenne = new Float(0);
-        int i = 0;
+        List<Double> l;
+        Double moyenne = new Double(0) ;
+
         session = util.getSessionFactory().openSession();
         session.beginTransaction();
         l = session.createQuery("select avg(Inscription.note) from Utilisateur, Inscription, Evenement where Evenement.codeevent = Inscription.codeevent and Inscription.identifiant = Utilisateur.identifiant").list();
         session.getTransaction().commit();
         session.close();
-        l.add(moyenne);
-        return l;
+        if(l.size() != 0) {
+            moyenne = l.get(1);
+            return moyenne;
+                          }
+
+        return moyenne;
     }
 /***********/
     public boolean CreerEvenement(Evenement evenement) throws Exception
@@ -102,6 +106,8 @@ return null;
         return false;
     }
 
+/************/
+
     public boolean updateEvenement(Evenement evenement) throws Exception
     {
         try {
@@ -115,6 +121,7 @@ return null;
         }
         return false;
     }
+    /***************/
 
     public boolean SupprimerEvenement(long codeEvent) throws Exception
     {

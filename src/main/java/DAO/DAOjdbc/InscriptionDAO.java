@@ -11,4 +11,6 @@ public interface InscriptionDAO {
 
     public Inscription sinscrire(Evenement evenement, Utilisateur utilisateur);
     public Inscription inscriptionNote(Inscription inscription, Double note);
+    public boolean Desinscription(Inscription inscription);
+    public Inscription findInscriptionByCodeEvtIden(Evenement evenement, Utilisateur utilisateur);
 }

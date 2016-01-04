@@ -13,6 +13,8 @@ public interface UtilisateurDAO {
 	public abstract Utilisateur findUtilisateurById(int id)
 			throws Exception;
 
+	boolean loginAuth(String login, String mdp) throws Exception;
+
 	public abstract boolean creerUtilisateur(Utilisateur utilisateur) throws Exception;
 
 	public abstract boolean updateUtilisateur(Utilisateur utilisateur) throws Exception;

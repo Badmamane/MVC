@@ -3,6 +3,7 @@ package model;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.sql.Timestamp;
 
 /**
@@ -14,15 +15,22 @@ public class Inscription {
     private long identifiant;
     private Timestamp dateinscription;
     private Double note;
+    private long idinscription;
 
-   public Inscription(){};
-    public Inscription(long codeevent, long identifiant, Timestamp dateinscription, Double note)
+    public Inscription(){};
+    public Inscription(long codeevent, long identifiant, Timestamp dateinscription, Double note, long idinscription)
     {
         this.codeevent = codeevent;
         this.identifiant = identifiant;
         this.dateinscription = dateinscription;
         this.note = note;
+        this.idinscription = idinscription;
     }
+
+    public void setNote(Double note) {
+        this.note = note;
+    }
+
     @Basic
     @Column(name = "codeevent")
     public long getCodeevent() {
@@ -59,9 +67,7 @@ public class Inscription {
         return note;
     }
 
-    public void setNote(Double note) {
-        this.note = note;
-    }
+
 
     @Override
     public boolean equals(Object o) {
@@ -86,5 +92,15 @@ public class Inscription {
         result = 31 * result + (dateinscription != null ? dateinscription.hashCode() : 0);
         result = 31 * result + (note != null ? note.hashCode() : 0);
         return result;
+    }
+
+    @Id
+    @Column(name = "idinscription")
+    public long getIdinscription() {
+        return idinscription;
+    }
+
+    public void setIdinscription(long idinscription) {
+        this.idinscription = idinscription;
     }
 }
