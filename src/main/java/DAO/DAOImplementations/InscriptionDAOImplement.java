@@ -97,6 +97,18 @@ public class InscriptionDAOImplement implements InscriptionDAO {
         }
 
  return inscription;
+    }
 
+   public Timestamp voirDateInscription(Evenement evenement, Utilisateur utilisateur)
+    {
+        Inscription inscription;
+        Timestamp dateInsc = new Timestamp(20/02/1993);
+        try{
+            inscription = findInscriptionByCodeEvtIden(evenement, utilisateur);
+            dateInsc = inscription.getDateinscription();
+            return dateInsc;
+        } catch (Exception exp)
+        {}
+        return dateInsc;
     }
 }

@@ -1,12 +1,15 @@
 package service;
 
 import DAO.DAOImplementations.EvenementDAOImplement;
+import DAO.DAOImplementations.InscriptionDAOImplement;
 import DAO.DAOImplementations.UtilisateurDAOImplement;
 import DAO.DAOjdbc.EvenementDAO;
+import DAO.DAOjdbc.InscriptionDAO;
 import DAO.DAOjdbc.UtilisateurDAO;
 import model.Evenement;
 import model.Utilisateur;
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,6 +20,7 @@ public class LeServiceUtilisateurNonAuth {
 
     EvenementDAO evenementDAO = new EvenementDAOImplement();
     UtilisateurDAO utilisateurDAO = new UtilisateurDAOImplement();
+    InscriptionDAO inscriptionDAO = new InscriptionDAOImplement();
 
    public boolean sauthentifierService(String nom, String mdp)
    {
@@ -55,17 +59,34 @@ public class LeServiceUtilisateurNonAuth {
         return l;
     }
 
-public Double voirNoteMoyenne(Evenement evenement)
+public Double voirNoteMoyenneService(Evenement evenement)
 {
     Double moyenne = new Double(0);
     try
     {
-        for()
+        moyenne = evenementDAO.VoirNoteMoyenneByEvenement(evenement);
+        return moyenne;
     }catch (Exception exp){
         exp.printStackTrace();
         System.out.println("Erreur  lors du calcul de la moyenne");
                         }
-}
+    return moyenne;
+   }
+
+    public Timestamp voirDateInscriptionService(Utilisateur utilisateur, Evenement evenement)
+    {
+       Timestamp timestamp = new Timestamp(20/02/1993);
+        try
+        {
+            timestamp = inscriptionDAO.voirDateInscription(evenement, utilisateur);
+            return timestamp;
+        }catch (Exception exp){
+            exp.printStackTrace();
+            System.out.println("Erreur  lors du calcul de la moyenne");
+        }
+        return timestamp;
+    }
+
 
 
 }
