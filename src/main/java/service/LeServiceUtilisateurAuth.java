@@ -75,4 +75,16 @@ public class LeServiceUtilisateurAuth {
               }
                return false;
            }
+    public Evenement touverEvtService(long a, long b)
+    {
+        Evenement evenement = new Evenement();
+          try {
+              evenement = evenementDAO.findEvenementByCodeEventIdentifiant(a, b);
+              return evenement ;
+
+          } catch (Exception exp){}
+        return evenement;
+       }
 }
+
+

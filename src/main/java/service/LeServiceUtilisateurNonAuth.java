@@ -87,6 +87,4 @@ public Double voirNoteMoyenneService(Evenement evenement)
         return timestamp;
     }
 
-
-
 }

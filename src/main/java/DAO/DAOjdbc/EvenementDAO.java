@@ -13,7 +13,7 @@ public interface EvenementDAO {
 
 	public List<Evenement> listerTousEvt() throws Exception;
 
-	public Evenement findEvenementByCodeEventIdentifiant(int codeEvent, int identifiant) throws Exception;
+	public Evenement findEvenementByCodeEventIdentifiant(long codeEvent, long identifiant) throws Exception;
 
 	public List<Utilisateur> listerTousPersonnes() throws Exception;
 

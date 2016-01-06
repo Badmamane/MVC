@@ -3,6 +3,7 @@ package ObjetsHibernte;
 /**
  * Created by Badam on 01/01/2016.
  */
+import action.LoginAction;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
