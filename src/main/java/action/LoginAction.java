@@ -14,7 +14,9 @@ package action;
         import service.LeServiceUtilisateurAuth;
         import service.LeServiceUtilisateurNonAuth;
 
+        import javax.servlet.RequestDispatcher;
         import javax.servlet.http.HttpServletRequest;
+        import javax.servlet.http.HttpServletResponse;
         import java.util.HashMap;
         import java.util.List;
         import java.util.Map;
@@ -69,11 +71,15 @@ public String sinscrire(){
 
        public String visualiser()
        {
+           Double noteMoyenne;
            try {
                HttpServletRequest request = (HttpServletRequest) ActionContext.getContext().get( ServletActionContext.HTTP_REQUEST);
-
+               HttpServletResponse response = (HttpServletResponse) ActionContext.getContext().get( ServletActionContext.HTTP_RESPONSE);
                Evenement evenement = leServiceUtilisateurAuth.touverEvtService(Long.parseLong(request. getParameter("id")), utilisateur.getIdentifiant());
-               if(leServiceUtilisateurAuth.seDesinscrireServce(evenement, utilisateur))
+               noteMoyenne = leServiceUtilisateurNonAuth.voirNoteMoyenneService(evenement);
+               request.setAttribute("note", noteMoyenne);
+               RequestDispatcher dispatcher = request.getRequestDispatcher("visualiserevt.jsp");
+               dispatcher.forward(request, response);
                    return SUCCESS;
                 } catch (Exception exp){
                exp.printStackTrace();

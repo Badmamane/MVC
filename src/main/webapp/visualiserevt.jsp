@@ -1,19 +1,18 @@
 <%--
   Created by IntelliJ IDEA.
   User: Badam
-  Date: 11/12/2015
-  Time: 13:40
+  Date: 07/01/2016
+  Time: 01:04
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-  <head>
-    <title>$Title$</title>
-  </head>
-  <body>
-  Bienvenue dans l'application:
-
-  <a href="login.jsp">S'identifier</a>
-
-  </body>
+<head>
+    <title>Visualiser</title>
+</head>
+<body>
+<table>
+    <tr><th>${}
+    </table>
+</body>
 </html>
