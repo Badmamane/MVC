@@ -32,7 +32,7 @@ public class CreerEvtAction extends ActionSupport  {
     public String creerevt()
     { try {
 
-        if(leServiceUtilisateurAuth.touverEvtService(evenement.getCodeevent(), loginAction.getUtilisateur().getIdentifiant())!= null)
+         if(leServiceUtilisateurAuth.touverEvtService(evenement.getCodeevent(), loginAction.getUtilisateur().getIdentifiant())!= null)
             leServiceUtilisateurAuth.creerEvenentService(evenement);
 
         else  System.out.println("L'événement existe dejà");

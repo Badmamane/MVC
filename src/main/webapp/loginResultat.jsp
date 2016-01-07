@@ -38,9 +38,9 @@
             <s:param name="evt" value="%{codeevent}"></s:param>
             <s:a href="%{sinscrireURL}">S'inscrire à l'évènement</s:a>
         </s:url></td>
-        <td><s:url id="visualiserURL" action="visualiseevt">
+        <td><s:url id="visualiseEvt" action="visualiseevt">
             <s:param name="evt" value="%{codeevent}"></s:param>
-            <s:a href="%{visualiserURL}">Visualiser</s:a>
+            <s:a href="%{visualiseEvt}">Visualiser</s:a>
         </s:url></td>
     </tr>
     </s:iterator>

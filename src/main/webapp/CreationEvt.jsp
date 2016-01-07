@@ -22,7 +22,7 @@
     <s:textfield name="evenement.nomevent" label="Login" />
     <s:textfield name="evenement.sujet" label="Login" />
     <s:textfield name="evenement.salle" label="Login" />
-    <s:textfield name="evenement." label="Login" />
+    <s:textfield name="evenement.note" label="Login" />
     <s:password name="evenement.idAnimateur" label="Login"/>
     <s:submit label="Submit" />
     </s:form>

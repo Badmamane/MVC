@@ -39,7 +39,6 @@ public String login()
         if(leServiceUtilisateurNonAuth.sauthentifierService(utilisateur.getNom(), utilisateur.getMotdepasse()))
             session.put("utilisateur", this.utilisateur);
         System.out.println("Vous êtes connecté sous le nom"+utilisateur.getNom());
-        List<Evenement>  evenementList = leServiceUtilisateurNonAuth.consulterEvenementService();
         return SUCCESS;
 
     } catch (Exception e) {
@@ -90,6 +89,42 @@ public String sinscrire(){
            return INPUT;
        }
 
+       public String listerEvenements()
+       {
+           List<Evenement> evenementList;
+           Evenement evenement;
+           try {
+               HttpServletRequest request = (HttpServletRequest) ActionContext.getContext().get( ServletActionContext.HTTP_REQUEST);
+               HttpServletResponse response = (HttpServletResponse) ActionContext.getContext().get( ServletActionContext.HTTP_RESPONSE);
+               evenementList = leServiceUtilisateurNonAuth.consulterEvenementService();
+               request.setAttribute("evenementList", evenementList);
+               RequestDispatcher dispatcher = request.getRequestDispatcher("visualiseEvt.jsp");
+               dispatcher.forward(request, response);
+               return SUCCESS;
+           } catch (Exception exp){
+               exp.printStackTrace();
+           }
+           return INPUT;
+       }
+       public String listerUtilisateurParEvenement()
+       {
+
+           List<Utilisateur> utilisateurListParEvt;
+           Evenement evenement;
+           try {
+               HttpServletRequest request = (HttpServletRequest) ActionContext.getContext().get( ServletActionContext.HTTP_REQUEST);
+               HttpServletResponse response = (HttpServletResponse) ActionContext.getContext().get( ServletActionContext.HTTP_RESPONSE);
+               evenement =  leServiceUtilisateurAuth.touverEvtService(Long.parseLong(request. getParameter("identifiant")), utilisateur.getIdentifiant());
+               utilisateurListParEvt = leServiceUtilisateurNonAuth.listerToutesPersonnesParEvntService(evenement);
+               request.setAttribute("evenementListParEvt", utilisateurListParEvt);
+               RequestDispatcher dispatcher = request.getRequestDispatcher("listerUtilisateursParEvt.jsp");
+               dispatcher.forward(request, response);
+               return SUCCESS;
+           } catch (Exception exp){
+               exp.printStackTrace();
+           }
+           return INPUT;
+       }
 
        public void setSession(Map<String, Object> map) {
            this.session = map;
