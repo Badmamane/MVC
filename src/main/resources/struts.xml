@@ -31,5 +31,9 @@
             <result name="input">/utilisateurNonAuth.jsp</result>
             <result name="succes">/utilisateurNonAuth.jsp</result>
         </action>
+        <action name="listerUtilisateursParEvent" class="action.LoginAction.listerUtilisateurParEvenement">
+            <result name="input">/listerUtilisateursParEvent.jsp</result>
+            <result name="succes">/listerUtilisateursParEvent.jsp</result>
+        </action>
     </package>
 </struts>

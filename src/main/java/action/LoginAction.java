@@ -117,7 +117,7 @@ public String sinscrire(){
                evenement =  leServiceUtilisateurAuth.touverEvtService(Long.parseLong(request. getParameter("identifiant")), utilisateur.getIdentifiant());
                utilisateurListParEvt = leServiceUtilisateurNonAuth.listerToutesPersonnesParEvntService(evenement);
                request.setAttribute("evenementListParEvt", utilisateurListParEvt);
-               RequestDispatcher dispatcher = request.getRequestDispatcher("listerUtilisateursParEvt.jsp");
+               RequestDispatcher dispatcher = request.getRequestDispatcher("listerUtilisateursParEvent.jsp");
                dispatcher.forward(request, response);
                return SUCCESS;
            } catch (Exception exp){
