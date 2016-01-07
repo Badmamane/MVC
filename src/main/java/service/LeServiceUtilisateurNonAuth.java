@@ -87,4 +87,18 @@ public Double voirNoteMoyenneService(Evenement evenement)
         return timestamp;
     }
 
+    public boolean inscrireService(Utilisateur utilisateur)
+    {
+        boolean b = false;
+        try
+        {
+            b = utilisateurDAO.creerUtilisateur(utilisateur);
+            return b;
+        }catch (Exception exp){
+            exp.printStackTrace();
+            System.out.println("Erreur  lors de votre inscription");
+        }
+        return b;
+    }
+
 }

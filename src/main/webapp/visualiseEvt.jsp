@@ -12,7 +12,8 @@
 </head>
 <body>
 <table>
-    <tr><th>${}
+    <tr><th>Note moyenne de l'évènement<th><th></th>${note}</tr>
     </table>
+
 </body>
 </html>

@@ -6,20 +6,26 @@
 
 <struts>
     <package name="default" extends="struts-default" namespace="/">
-        <action name="login" class="action.LoginAction">
+        <action name="login" class="action.LoginAction.login">
             <result name="input">/login.jsp</result>
             <result name="success">/loginResultat.jsp</result>
         </action>
 
-        <action name="CreationEvt" class="action.CreerEvtAction">
+        <action name="CreationEvt" class="action.CreerEvtAction.creerevt">
         <result name="input">/CreationEvt.jsp</result>
         <result name="success">/CreationEvtResultat.jsp</result>
     </action>
-        <action name="sinscrire" class="action.LoginAction">
+        <action name="sinscrire" class="action.LoginAction.sinscrire">
             <result name="input">/CreationEvtResultat.jsp</result>
+            <result name="succes">/CreationEvtResultat.jsp</result>
         </action>
-        <action name="sinscrire" class="action.LoginAction">
+        <action name="desinscrire" class="action.LoginAction.desinscrire">
             <result name="input">/CreationEvtResultat.jsp</result>
+            <result name="succes">/CreationEvtResultat.jsp</result>
+        </action>
+        <action name="inscriptionAuSite" class="action.InscriptionAction.inscriptionAuSite">
+            <result name="input">/login.jsp</result>
+            <result name="succes">/login.jsp</result>
         </action>
     </package>
 </struts>

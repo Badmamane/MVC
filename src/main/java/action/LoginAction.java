@@ -5,21 +5,20 @@ package action;
  */
 
         import com.opensymphony.xwork2.ActionContext;
-        import com.opensymphony.xwork2.ActionSupport;
-        import model.Evenement;
-        import model.Inscription;
-        import model.Utilisateur;
-        import org.apache.struts2.ServletActionContext;
-        import org.apache.struts2.interceptor.SessionAware;
-        import service.LeServiceUtilisateurAuth;
-        import service.LeServiceUtilisateurNonAuth;
+import com.opensymphony.xwork2.ActionSupport;
+import model.Evenement;
+import model.Inscription;
+import model.Utilisateur;
+import org.apache.struts2.ServletActionContext;
+import org.apache.struts2.interceptor.SessionAware;
+import service.LeServiceUtilisateurAuth;
+import service.LeServiceUtilisateurNonAuth;
 
-        import javax.servlet.RequestDispatcher;
-        import javax.servlet.http.HttpServletRequest;
-        import javax.servlet.http.HttpServletResponse;
-        import java.util.HashMap;
-        import java.util.List;
-        import java.util.Map;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.util.List;
+import java.util.Map;
 
 
    public class LoginAction extends ActionSupport implements SessionAware {
@@ -28,21 +27,25 @@ package action;
        private Utilisateur utilisateur = new Utilisateur();
        private LeServiceUtilisateurNonAuth leServiceUtilisateurNonAuth = new LeServiceUtilisateurNonAuth();
        private LeServiceUtilisateurAuth  leServiceUtilisateurAuth = new LeServiceUtilisateurAuth();
+
        public String execute() {
 
-          try {
-               if(leServiceUtilisateurNonAuth.sauthentifierService(utilisateur.getNom(), utilisateur.getMotdepasse()))
-               session.put("utilisateur", this.utilisateur);
-               System.out.println("Vous êtes connecté sous le nom"+utilisateur.getNom());
-               List<Evenement>  evenementList = leServiceUtilisateurNonAuth.consulterEvenementService();
-              return SUCCESS;
-
-              } catch (Exception e) {
-               return INPUT;
-           }
+        return SUCCESS;
 
        }
+public String login()
+{
+    try {
+        if(leServiceUtilisateurNonAuth.sauthentifierService(utilisateur.getNom(), utilisateur.getMotdepasse()))
+            session.put("utilisateur", this.utilisateur);
+        System.out.println("Vous êtes connecté sous le nom"+utilisateur.getNom());
+        List<Evenement>  evenementList = leServiceUtilisateurNonAuth.consulterEvenementService();
+        return SUCCESS;
 
+    } catch (Exception e) {
+        return INPUT;
+    }
+}
 public String sinscrire(){
 
    try {
@@ -78,7 +81,7 @@ public String sinscrire(){
                Evenement evenement = leServiceUtilisateurAuth.touverEvtService(Long.parseLong(request. getParameter("id")), utilisateur.getIdentifiant());
                noteMoyenne = leServiceUtilisateurNonAuth.voirNoteMoyenneService(evenement);
                request.setAttribute("note", noteMoyenne);
-               RequestDispatcher dispatcher = request.getRequestDispatcher("visualiserevt.jsp");
+               RequestDispatcher dispatcher = request.getRequestDispatcher("visualiseEvt.jsp");
                dispatcher.forward(request, response);
                    return SUCCESS;
                 } catch (Exception exp){

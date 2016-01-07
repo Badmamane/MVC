@@ -26,15 +26,21 @@ public class CreerEvtAction extends ActionSupport  {
 
     @Override
     public String execute(){
-        try {
+       return SUCCESS;
 
-            if(leServiceUtilisateurAuth.touverEvtService(evenement.getCodeevent(), loginAction.getUtilisateur().getIdentifiant())!= null)
-               leServiceUtilisateurAuth.creerEvenentService(evenement);
+    }
+    public String creerevt()
+    { try {
 
-            else  System.out.println("L'événement existe dejà");
-            return SUCCESS;
-        } catch (Exception e) {
+        if(leServiceUtilisateurAuth.touverEvtService(evenement.getCodeevent(), loginAction.getUtilisateur().getIdentifiant())!= null)
+            leServiceUtilisateurAuth.creerEvenentService(evenement);
+
+        else  System.out.println("L'événement existe dejà");
+        return SUCCESS;
+    } catch (Exception e) {
 
 
-    }  return INPUT;}}
+    }
+        return INPUT;
+    }}
 
